@@ -21,7 +21,7 @@ struct CheckOutView: View {
             Text("Total Order : Rp\(total.formatted(FloatingPointFormatStyle()))")
                 .font(.system(.title, design: .rounded))
             
-            TextField("Enter the nominal: ", text: $payAmount)
+            TextField("Enter the nominal ", text: $payAmount)
                 .keyboardType(.numberPad)
             
             HStack {
