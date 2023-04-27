@@ -106,9 +106,11 @@ struct CafeView: View {
                     
                     Button(action: {
                         dummyCafe[cafeId].food[selectedFood].quantity = self.quantity
+                        isFoodSelected = false
                         
                     }) {
                         Text("Add To Cart")
+                        
                     }
                     .disabled(quantity <= 0)
                     .buttonStyle(.borderedProminent)
@@ -119,7 +121,9 @@ struct CafeView: View {
                 .background(.black.opacity(0.15))
                 
             }
+                
         }
+        .navigationTitle("Cart")
     }
     
      
