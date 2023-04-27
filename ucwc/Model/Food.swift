@@ -8,7 +8,8 @@
 import Foundation
 
 struct Food {
-    let id: Int
-    let name: String
-    let price: Double
+    var id: Int
+    var name: String
+    var price: Double
+    var quantity: Int
 }

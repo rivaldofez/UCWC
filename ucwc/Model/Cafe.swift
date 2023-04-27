@@ -9,7 +9,7 @@ import Foundation
 
 
 struct Cafe {
-    let id: Int
-    let name: String
-    let food: [Food]
+    var id: Int
+    var name: String
+    var food: [Food]
 }

@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct CafeView: View {
-    var cafe: Cafe
+    var cafeId: Int
     @State var isFoodSelected = false
-    @State var selectedFood: Food? = nil
-    @State var numOfBuy: Int = 0
+    @State var selectedFood: Int = 0
+    @State var quantity: Int = 0
     
     private let foodColumns = [
         GridItem(.adaptive(minimum: 170))
@@ -20,21 +20,29 @@ struct CafeView: View {
     
     var body: some View {
         VStack {
-            Text(cafe.name)
+            Text(dummyCafe[cafeId].name)
                 .font(.system(.title))
                 .foregroundColor(.primary)
             
             ScrollView {
                 LazyVGrid(columns: foodColumns) {
-                    ForEach(cafe.food, id: \.id){ food in
-                        FoodItemView(foodName: food.name)
+                    ForEach(0..<dummyCafe[cafeId].food.count, id: \.self){ foodId in
+                        FoodItemView(foodName: dummyCafe[cafeId].food[foodId].name)
                             .onTapGesture {
-                                isFoodSelected = !isFoodSelected
+                                
+                                if selectedFood != foodId {
+                                    isFoodSelected = true
+                                } else {
+                                    isFoodSelected = !isFoodSelected
+                                }
+                                
+                                
                                 
                                 if isFoodSelected {
-                                    selectedFood = food
+                                    selectedFood = foodId
+                                    quantity = 0
                                 } else {
-                                    selectedFood = nil
+                                    selectedFood = 0
                                 }
                             }
                         
@@ -47,9 +55,9 @@ struct CafeView: View {
                     Spacer()
                     
                     VStack(alignment: .center) {
-                        Text(selectedFood?.name ?? "")
+                        Text(dummyCafe[cafeId].food[selectedFood].name)
                             .font(.system(.title3))
-                        Text("Rp\(selectedFood?.price.formatted(FloatingPointFormatStyle()) ?? "") / 300 liter")
+                        Text("Rp\(dummyCafe[cafeId].food[selectedFood].price.formatted(FloatingPointFormatStyle()) ) / 300 liter")
                             .font(.system(.title2).bold())
                     }
                     
@@ -57,10 +65,10 @@ struct CafeView: View {
                         
                         HStack {
                             Button(action: {
-                                if numOfBuy <= 0 {
-                                    numOfBuy = 0
+                                if quantity <= 0 {
+                                    quantity = 0
                                 } else {
-                                    numOfBuy = numOfBuy - 1
+                                    quantity = quantity - 1
                                 }
                                 
                             }) {
@@ -72,11 +80,11 @@ struct CafeView: View {
                                     .background(.gray)
                                     .clipShape(Circle())
                             }
-                            Text("\(numOfBuy)")
+                            Text("\(quantity)")
                                 .padding(.horizontal, 10)
                                 .font(.system(.title3).bold())
                             Button(action: {
-                                numOfBuy = numOfBuy + 1
+                                quantity = quantity + 1
                             }) {
                                 Image(systemName: "plus")
                                     .font(.system(.body))
@@ -91,24 +99,18 @@ struct CafeView: View {
                         Spacer()
                         
                         
-                        Text("Total : \(calculateTotal(quantity: numOfBuy, price: selectedFood?.price).formatted(FloatingPointFormatStyle()))")
+                        Text("Total : \(calculateTotal(quantity: quantity, price: dummyCafe[cafeId].food[selectedFood].price).formatted(FloatingPointFormatStyle()))")
                             .font(.system(.title3).bold())
                         
                     }.padding(.horizontal, 16)
                     
                     Button(action: {
-                        dummyCartData.removeAll(where: {$0.foodName == selectedFood?.name})
-                        
-                        if let foodName = selectedFood?.name {
-                            dummyCartData.append(Cart(cafeName: cafe.name, foodName: foodName, quantity: numOfBuy))
-                            
-                            print(dummyCartData)
-                        }
+                        dummyCafe[cafeId].food[selectedFood].quantity = self.quantity
                         
                     }) {
                         Text("Add To Cart")
                     }
-                    .disabled(numOfBuy <= 0)
+                    .disabled(quantity <= 0)
                     .buttonStyle(.borderedProminent)
                     
                     
@@ -133,6 +135,6 @@ struct CafeView: View {
 
 struct CafeView_Previews: PreviewProvider {
     static var previews: some View {
-        CafeView(cafe: dummyCafe[0], isFoodSelected: true)
+        CafeView(cafeId: 0)
     }
 }

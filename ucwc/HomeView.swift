@@ -39,16 +39,13 @@ struct HomeView: View {
                 Text("Select Your Cafetaria")
                 
                 ScrollView {
-                    ForEach(dummyCafe, id: \.id) { cafe in
-                        NavigationLink(destination: CafeView(cafe: cafe)) {
-                            CafeItemView(cafeName: cafe.name)
+                    ForEach(0..<dummyCafe.count, id: \.self) { id in
+                        NavigationLink(destination: CafeView(cafeId: id)) {
+                            CafeItemView(cafeName: dummyCafe[id].name)
                         }
                             
                     }
                 }
-            
-                
-//                Spacer()
             }
             .padding(16)
         }
