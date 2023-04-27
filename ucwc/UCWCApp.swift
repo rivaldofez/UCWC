@@ -11,7 +11,9 @@ import SwiftUI
 struct ucwcApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationView {
+                OnboardingView()
+            }
         }
     }
 }
