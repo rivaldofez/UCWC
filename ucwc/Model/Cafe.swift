@@ -12,4 +12,5 @@ struct Cafe {
     var id: Int
     var name: String
     var food: [Food]
+    var image: String
 }

@@ -29,7 +29,7 @@ struct CafeItemView: View {
         }
         .frame(maxWidth: .infinity, minHeight: 200, alignment: .trailing)
         .background(
-                Image("food_court")
+                Image(cafeThumbnail)
         )
         .clipShape(RoundedRectangle(cornerRadius: 20))
     }

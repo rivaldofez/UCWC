@@ -9,6 +9,7 @@ import SwiftUI
 
 struct FoodItemView: View {
     var foodName: String
+    var foodThumbnail: String
     
     var body: some View {
         VStack {
@@ -26,8 +27,9 @@ struct FoodItemView: View {
         }
         .frame(width: 170, height: 200)
         .background(
-            Image("dummy_food")
+            Image(foodThumbnail)
                 .resizable()
+                .scaledToFill()
         )
         .clipShape(RoundedRectangle(cornerRadius: 16))
     }
@@ -35,6 +37,6 @@ struct FoodItemView: View {
 
 struct FoodItemView_Previews: PreviewProvider {
     static var previews: some View {
-        FoodItemView(foodName: "Kentang Rebus")
+        FoodItemView(foodName: "Kentang Rebus", foodThumbnail: "food_1")
     }
 }

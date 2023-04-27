@@ -30,7 +30,7 @@ struct CafeView: View {
             ScrollView {
                 LazyVGrid(columns: foodColumns) {
                     ForEach(0..<dummyCafe[cafeId].food.count, id: \.self){ foodId in
-                        FoodItemView(foodName: dummyCafe[cafeId].food[foodId].name)
+                        FoodItemView(foodName: dummyCafe[cafeId].food[foodId].name, foodThumbnail: dummyCafe[cafeId].food[foodId].image )
                             .onTapGesture {
                                 
                                 if selectedFood != foodId {
@@ -38,8 +38,6 @@ struct CafeView: View {
                                 } else {
                                     isFoodSelected = !isFoodSelected
                                 }
-                                
-                                
                                 
                                 if isFoodSelected {
                                     selectedFood = foodId
@@ -60,7 +58,7 @@ struct CafeView: View {
                     VStack(alignment: .center) {
                         Text(dummyCafe[cafeId].food[selectedFood].name)
                             .font(.system(.title3))
-                        Text("Rp\(dummyCafe[cafeId].food[selectedFood].price.formatted(FloatingPointFormatStyle()) ) / 300 liter")
+                        Text("Rp\(dummyCafe[cafeId].food[selectedFood].price.formatted(FloatingPointFormatStyle()))")
                             .font(.system(.title2).bold())
                     }
                     
@@ -80,7 +78,7 @@ struct CafeView: View {
                                     .frame(width: 10, height: 10)
                                     .foregroundColor(.black)
                                     .padding(10)
-                                    .background(.gray)
+                                    .background(.gray.opacity(0.5))
                                     .clipShape(Circle())
                             }
                             Text("\(quantity)")
@@ -94,7 +92,7 @@ struct CafeView: View {
                                     .frame(width: 10, height: 10)
                                     .foregroundColor(.black)
                                     .padding(10)
-                                    .background(.gray)
+                                    .background(.gray.opacity(0.5))
                                     .clipShape(Circle())
                             }
                         }
@@ -120,7 +118,7 @@ struct CafeView: View {
                     
                 }
                 .frame(maxWidth: .infinity, maxHeight: 150, alignment: .center)
-                .background(.black.opacity(0.15))
+                .background(.gray.opacity(0.05))
                 
             }
                 

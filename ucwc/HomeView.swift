@@ -43,7 +43,8 @@ struct HomeView: View {
                 ScrollView {
                     ForEach(0..<dummyCafe.count, id: \.self) { id in
                         NavigationLink(destination: CafeView(cafeId: id)) {
-                            CafeItemView(cafeName: dummyCafe[id].name)
+                            CafeItemView(cafeName: dummyCafe[id].name, cafeThumbnail: dummyCafe[id].image)
+                                .padding(.bottom, 16)
                         }
                             
                     }
