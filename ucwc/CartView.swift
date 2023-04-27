@@ -8,25 +8,90 @@
 import SwiftUI
 
 struct CartView: View {
-    @State private var cafeData: [Cafe] = []
+    @State private var cafeData: [Cafe] = [] {
+        didSet {
+            total = 0
+            cafeData.forEach { cafe in
+                cafe.food.forEach { food in
+                    total = total + calculateTotal(quantity: food.quantity, price: food.price)
+                }
+            }
+        }
+    }
+    @State private var total: Double = 0
     
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
             Text("Your Order:")
             
             ScrollView {
                 ForEach(0..<cafeData.count, id: \.self) { cafeId in
                     ForEach(0..<cafeData[cafeId].food.count, id: \.self) { foodId in
                         if (cafeData[cafeId].food[foodId].quantity > 0){
-                            Text(cafeData[cafeId].food[foodId].name)
+                            VStack(alignment: .leading) {
+                                Text(cafeData[cafeId].food[foodId].name)
+                                    .font(.system(.title3))
+                                Text("Rp\(cafeData[cafeId].food[foodId].price.formatted(FloatingPointFormatStyle()))")
+                                    .font(.system(.body))
+                                
+                                HStack {
+                                    Button(action: {
+                                        if(cafeData[cafeId].food[foodId].quantity > 0){
+                                            cafeData[cafeId].food[foodId].quantity  = cafeData[cafeId].food[foodId].quantity - 1
+                                        }
+                                        
+                                    }) {
+                                        Image(systemName: "minus")
+                                            .font(.system(.body))
+                                            .frame(width: 10, height: 10)
+                                            .foregroundColor(.black)
+                                            .padding(10)
+                                            .background(.gray)
+                                            .clipShape(Circle())
+                                    }
+                                    Text("\(cafeData[cafeId].food[foodId].quantity)")
+                                        .padding(.horizontal, 10)
+                                        .font(.system(.title3).bold())
+                                    Button(action: {
+                                        cafeData[cafeId].food[foodId].quantity = cafeData[cafeId].food[foodId].quantity + 1
+                                    }) {
+                                        Image(systemName: "plus")
+                                            .font(.system(.body))
+                                            .frame(width: 10, height: 10)
+                                            .foregroundColor(.black)
+                                            .padding(10)
+                                            .background(.gray)
+                                            .clipShape(Circle())
+                                    }
+                                    
+                                    Spacer()
+                                    
+                                    Text("Subtotal : Rp\(calculateTotal(quantity: cafeData[cafeId].food[foodId].quantity, price: cafeData[cafeId].food[foodId].price).formatted(FloatingPointFormatStyle()))")
+                                        .font(.system(.title3).bold())
+                                }
+                                Spacer()
+                            }
+                            .padding(16)
+                            
                         }
                     }
                 }
             }
             
+            if (total > 0 ){
+                Text("Total Order : Rp\(total)")
+            }
+            
         }.onAppear {
             self.cafeData = dummyCafe
         }
+    }
+    
+    private func calculateTotal(quantity: Int?, price: Double?) -> Double {
+        if let quantity = quantity, let price = price {
+            return price * Double(quantity)
+            
+        } else { return 0 }
     }
 }
 

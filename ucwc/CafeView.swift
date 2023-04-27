@@ -113,8 +113,6 @@ struct CafeView: View {
                     .disabled(quantity <= 0)
                     .buttonStyle(.borderedProminent)
                     
-                    
-                    
                 }
                 .frame(maxWidth: .infinity, maxHeight: 150, alignment: .center)
                 .padding(.horizontal, 16)
