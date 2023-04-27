@@ -8,12 +8,15 @@
 import SwiftUI
 
 struct CafeItemView: View {
+    var cafeName: String = ""
+    var cafeThumbnail: String = ""
+    
     var body: some View {
         VStack(alignment: .leading) {
             
             Spacer()
             
-            Text("Find out more")
+            Text(cafeName)
                 .font(.system(.title3))
                 .multilineTextAlignment(.trailing)
                 .foregroundColor(.white)

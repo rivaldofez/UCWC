@@ -39,8 +39,8 @@ struct HomeView: View {
                 Text("Select Your Cafetaria")
                 
                 ScrollView {
-                    ForEach(0...7, id: \.self) { number in
-                        CafeItemView()
+                    ForEach(dummyCafe, id: \.id) { cafe in
+                        CafeItemView(cafeName: cafe.name)
                     }
                 }
             
