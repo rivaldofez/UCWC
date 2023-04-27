@@ -40,7 +40,10 @@ struct HomeView: View {
                 
                 ScrollView {
                     ForEach(dummyCafe, id: \.id) { cafe in
-                        CafeItemView(cafeName: cafe.name)
+                        NavigationLink(destination: CafeView(cafe: cafe)) {
+                            CafeItemView(cafeName: cafe.name)
+                        }
+                            
                     }
                 }
             
