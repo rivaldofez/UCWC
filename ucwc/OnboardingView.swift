@@ -12,22 +12,40 @@ struct OnboardingView: View {
     @State var showHomeView: Bool = false
     
     var body: some View {
-        VStack {
-            Text("Hello, What's your name?")
-                .font(.system(.title, design: .rounded))
-            
-            TextField("Name", text: $fullname)
-            
-            Button(action: {
-                showHomeView = true
-            }) {
-                Text("Continue")
-            }
-            .fullScreenCover(isPresented: $showHomeView) {
-                NavigationView {
-                    MainView()
+        GeometryReader { screen in
+            VStack(alignment: .leading) {
+                Image("onboard")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(height: screen.size.height / 2)
+                
+                
+                Text("Hello, What's your name?")
+                    .font(.system(.title, design: .rounded))
+                
+                TextField("Name", text: $fullname)
+                
+                HStack {
+                    Spacer()
+                    
+                    Button(action: {
+                        showHomeView = true
+                    }) {
+                        Text("Continue")
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .padding(.top, 32)
+                    .disabled(fullname.isEmpty)
+                    .fullScreenCover(isPresented: $showHomeView) {
+                        NavigationView {
+                            MainView()
+                        }
+                    }
+                    
+                    Spacer()
                 }
             }
+            .padding(32)
         }
     }
 }
