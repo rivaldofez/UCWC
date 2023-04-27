@@ -25,7 +25,7 @@ struct OnboardingView: View {
             }
             .fullScreenCover(isPresented: $showHomeView) {
                 NavigationView {
-                    HomeView()
+                    MainView()
                 }
             }
         }

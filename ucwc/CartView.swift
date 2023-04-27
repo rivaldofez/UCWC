@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct CartView: View {
+    @State var showCheckOut: Bool = false
+    
     @State private var cafeData: [Cafe] = [] {
         didSet {
             total = 0
@@ -88,21 +90,29 @@ struct CartView: View {
                     Spacer()
                     Text("Rp\(total.formatted(FloatingPointFormatStyle()))")
                         .font(.system(.title3).bold())
-                        
+                    
                 }.padding(.horizontal, 16)
                 
                 HStack {
                     Spacer()
-                    Button(action: {}) {
+                    Button(action: {
+                        showCheckOut.toggle()
+                    }) {
                         Text("Check Out")
-                    }.buttonStyle(.borderedProminent)
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .sheet(isPresented: $showCheckOut) {
+                        CheckOutView(total: $total, cafeData: $cafeData)
+                            .presentationDetents([.medium, .large])
+                    }
+                    
                     Spacer()
                 }
                 .padding(.bottom, 16)
                 
             } else {
                 Text("You don't order food yet. Check out our amazing food and order it")
-                    .font(.system(.title2).bold())
+                    .font(.system(.title2))
                     .multilineTextAlignment(.center)
                 
             }

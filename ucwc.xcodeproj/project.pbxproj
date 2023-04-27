@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7EC697EE29FAF18D008D4B9D /* CheckOutVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC697ED29FAF18D008D4B9D /* CheckOutVIew.swift */; };
 		7EF5D95429FA8A4F0053C5C1 /* UCWCApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF5D95329FA8A4F0053C5C1 /* UCWCApp.swift */; };
 		7EF5D95829FA8A500053C5C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7EF5D95729FA8A500053C5C1 /* Assets.xcassets */; };
 		7EF5D95B29FA8A500053C5C1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7EF5D95A29FA8A500053C5C1 /* Preview Assets.xcassets */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7EC697ED29FAF18D008D4B9D /* CheckOutVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckOutVIew.swift; sourceTree = "<group>"; };
 		7EF5D95029FA8A4F0053C5C1 /* ucwc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ucwc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EF5D95329FA8A4F0053C5C1 /* UCWCApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UCWCApp.swift; sourceTree = "<group>"; };
 		7EF5D95729FA8A500053C5C1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 		7EF5D95229FA8A4F0053C5C1 /* ucwc */ = {
 			isa = PBXGroup;
 			children = (
+				7EC697ED29FAF18D008D4B9D /* CheckOutVIew.swift */,
 				7EF5D96E29FAB3010053C5C1 /* Model */,
 				7EF5D96A29FAB22C0053C5C1 /* MainView.swift */,
 				7EF5D96729FA9BC70053C5C1 /* CustomView */,
@@ -185,6 +188,7 @@
 			files = (
 				7EF5D96629FA9BC40053C5C1 /* CafeItemView.swift in Sources */,
 				7EF5D96D29FAB2860053C5C1 /* CartView.swift in Sources */,
+				7EC697EE29FAF18D008D4B9D /* CheckOutVIew.swift in Sources */,
 				7EF5D96B29FAB22C0053C5C1 /* MainView.swift in Sources */,
 				7EF5D96929FA9D500053C5C1 /* CafeView.swift in Sources */,
 				7EF5D97029FAB30A0053C5C1 /* Cafe.swift in Sources */,
