@@ -14,6 +14,11 @@
 		7EF5D96429FA8D650053C5C1 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF5D96329FA8D650053C5C1 /* HomeView.swift */; };
 		7EF5D96629FA9BC40053C5C1 /* CafeItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF5D96529FA9BC40053C5C1 /* CafeItemView.swift */; };
 		7EF5D96929FA9D500053C5C1 /* CafeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF5D96829FA9D500053C5C1 /* CafeView.swift */; };
+		7EF5D96B29FAB22C0053C5C1 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF5D96A29FAB22C0053C5C1 /* MainView.swift */; };
+		7EF5D96D29FAB2860053C5C1 /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF5D96C29FAB2860053C5C1 /* CartView.swift */; };
+		7EF5D97029FAB30A0053C5C1 /* Cafe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF5D96F29FAB30A0053C5C1 /* Cafe.swift */; };
+		7EF5D97229FAB3420053C5C1 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF5D97129FAB3420053C5C1 /* Food.swift */; };
+		7EF5D97429FAB7D40053C5C1 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF5D97329FAB7D40053C5C1 /* DummyData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +30,11 @@
 		7EF5D96329FA8D650053C5C1 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		7EF5D96529FA9BC40053C5C1 /* CafeItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeItemView.swift; sourceTree = "<group>"; };
 		7EF5D96829FA9D500053C5C1 /* CafeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeView.swift; sourceTree = "<group>"; };
+		7EF5D96A29FAB22C0053C5C1 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		7EF5D96C29FAB2860053C5C1 /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
+		7EF5D96F29FAB30A0053C5C1 /* Cafe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cafe.swift; sourceTree = "<group>"; };
+		7EF5D97129FAB3420053C5C1 /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
+		7EF5D97329FAB7D40053C5C1 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +67,8 @@
 		7EF5D95229FA8A4F0053C5C1 /* ucwc */ = {
 			isa = PBXGroup;
 			children = (
+				7EF5D96E29FAB3010053C5C1 /* Model */,
+				7EF5D96A29FAB22C0053C5C1 /* MainView.swift */,
 				7EF5D96729FA9BC70053C5C1 /* CustomView */,
 				7EF5D95329FA8A4F0053C5C1 /* UCWCApp.swift */,
 				7EF5D96329FA8D650053C5C1 /* HomeView.swift */,
@@ -64,6 +76,7 @@
 				7EF5D95729FA8A500053C5C1 /* Assets.xcassets */,
 				7EF5D95929FA8A500053C5C1 /* Preview Content */,
 				7EF5D96829FA9D500053C5C1 /* CafeView.swift */,
+				7EF5D96C29FAB2860053C5C1 /* CartView.swift */,
 			);
 			path = ucwc;
 			sourceTree = "<group>";
@@ -82,6 +95,16 @@
 				7EF5D96529FA9BC40053C5C1 /* CafeItemView.swift */,
 			);
 			path = CustomView;
+			sourceTree = "<group>";
+		};
+		7EF5D96E29FAB3010053C5C1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7EF5D96F29FAB30A0053C5C1 /* Cafe.swift */,
+				7EF5D97129FAB3420053C5C1 /* Food.swift */,
+				7EF5D97329FAB7D40053C5C1 /* DummyData.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -155,10 +178,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				7EF5D96629FA9BC40053C5C1 /* CafeItemView.swift in Sources */,
+				7EF5D96D29FAB2860053C5C1 /* CartView.swift in Sources */,
+				7EF5D96B29FAB22C0053C5C1 /* MainView.swift in Sources */,
 				7EF5D96929FA9D500053C5C1 /* CafeView.swift in Sources */,
+				7EF5D97029FAB30A0053C5C1 /* Cafe.swift in Sources */,
+				7EF5D97229FAB3420053C5C1 /* Food.swift in Sources */,
 				7EF5D96429FA8D650053C5C1 /* HomeView.swift in Sources */,
 				7EF5D96229FA8C260053C5C1 /* OnboardingView.swift in Sources */,
 				7EF5D95429FA8A4F0053C5C1 /* UCWCApp.swift in Sources */,
+				7EF5D97429FAB7D40053C5C1 /* DummyData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

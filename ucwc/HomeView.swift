@@ -37,9 +37,15 @@ struct HomeView: View {
                 Divider()
                 
                 Text("Select Your Cafetaria")
+                
+                ScrollView {
+                    ForEach(0...7, id: \.self) { number in
+                        CafeItemView()
+                    }
+                }
             
                 
-                Spacer()
+//                Spacer()
             }
             .padding(16)
         }

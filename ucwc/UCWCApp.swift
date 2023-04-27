@@ -12,7 +12,8 @@ struct ucwcApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                OnboardingView()
+//                OnboardingView()
+                MainView()
             }
         }
     }

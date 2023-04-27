@@ -24,7 +24,7 @@ struct CafeItemView: View {
             
             
         }
-        .frame(maxWidth: .infinity, maxHeight: 200, alignment: .trailing)
+        .frame(maxWidth: .infinity, minHeight: 200, alignment: .trailing)
         .background(
                 Image("food_court")
         )
