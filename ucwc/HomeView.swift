@@ -8,8 +8,41 @@
 import SwiftUI
 
 struct HomeView: View {
+    
+    private let adaptiveColumn = [
+        GridItem(.adaptive(minimum: 170))
+    ]
+    
+    private var data: [Int] = Array(1...5)
+    
     var body: some View {
-        /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Hello, world!@*/Text("Hello, world!")/*@END_MENU_TOKEN@*/
+        GeometryReader { screen in
+            VStack(alignment: .leading) {
+                HStack {
+                    Image("avatar_male")
+                        .resizable()
+                        .frame(width: 50, height: 50)
+                        .clipShape(Circle())
+                    
+                    VStack(alignment: .leading) {
+                        Text("Welcome!")
+                        Text("Rivaldo Fernandes")
+                    }
+                    .padding(.leading, 16)
+                    
+                    Spacer()
+                    
+                }
+                
+                Divider()
+                
+                Text("Select Your Cafetaria")
+            
+                
+                Spacer()
+            }
+            .padding(16)
+        }
     }
 }
 
