@@ -11,6 +11,7 @@ struct CafeView: View {
     var cafe: Cafe
     @State var isFoodSelected = false
     @State var selectedFood: Food? = nil
+    @State var numOfBuy: Int = 0
     
     private let foodColumns = [
         GridItem(.adaptive(minimum: 170))
@@ -48,14 +49,21 @@ struct CafeView: View {
                     VStack(alignment: .center) {
                         Text(selectedFood?.name ?? "")
                             .font(.system(.title3))
-                        Text("Rp\(selectedFood?.price.formatted(FloatingPointFormatStyle()) ?? "")")
+                        Text("Rp\(selectedFood?.price.formatted(FloatingPointFormatStyle()) ?? "") / 300 liter")
                             .font(.system(.title2).bold())
                     }
                     
                     HStack {
                         
                         HStack {
-                            Button(action: {}) {
+                            Button(action: {
+                                if numOfBuy <= 0 {
+                                    numOfBuy = 0
+                                } else {
+                                    numOfBuy = numOfBuy - 1
+                                }
+                                
+                            }) {
                                 Image(systemName: "minus")
                                     .font(.system(.body))
                                     .frame(width: 10, height: 10)
@@ -64,10 +72,12 @@ struct CafeView: View {
                                     .background(.gray)
                                     .clipShape(Circle())
                             }
-                            Text("10")
+                            Text("\(numOfBuy)")
                                 .padding(.horizontal, 10)
                                 .font(.system(.title3).bold())
-                            Button(action: {}) {
+                            Button(action: {
+                                numOfBuy = numOfBuy + 1
+                            }) {
                                 Image(systemName: "plus")
                                     .font(.system(.body))
                                     .frame(width: 10, height: 10)
@@ -81,24 +91,34 @@ struct CafeView: View {
                         Spacer()
                         
                         
-                        Button(action: {}) {
-                            Text("Add To Cart")
-                        }
-                        .buttonStyle(.borderedProminent)
+                        Text("Total : \(calculateTotal(quantity: numOfBuy, price: selectedFood?.price).formatted(FloatingPointFormatStyle()))")
+                            .font(.system(.title3).bold())
                         
                     }.padding(.horizontal, 16)
                     
+                    Button(action: {}) {
+                        Text("Add To Cart")
+                    }
+                    .disabled(numOfBuy <= 0)
+                    .buttonStyle(.borderedProminent)
+                    
+                    
+                    
                 }
-                .frame(maxWidth: .infinity, maxHeight: 120, alignment: .center)
+                .frame(maxWidth: .infinity, maxHeight: 150, alignment: .center)
                 .padding(.horizontal, 16)
                 .background(.black.opacity(0.15))
                 
             }
-            
-            
-            
-            
         }
+    }
+    
+     
+    private func calculateTotal(quantity: Int?, price: Double?) -> Double {
+        if let quantity = quantity, let price = price {
+            return price * Double(quantity)
+            
+        } else { return 0 }
     }
 }
 

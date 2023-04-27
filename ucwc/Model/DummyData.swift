@@ -9,7 +9,7 @@ import Foundation
 
 let dummyCafe: [Cafe] = [
     Cafe(id: 0, name: "Tuku-tuku", food: [
-        Food(id: 0, name: "Tahu isi", price: 100),
+        Food(id: 0, name: "Tahu isi", price: 100000000),
         Food(id: 1, name: "Nasi kuning  (150.0 gram)", price: 200),
         Food(id: 2, name: "Nasi goreng  (150.0 gram)", price: 300),
         Food(id: 3, name: "Air Mineral (600 liter)", price: 400),
