@@ -7,6 +7,8 @@
 
 import Foundation
 
+var userName: String = ""
+
 var dummyCartData: [Cart] = []
 
 var dummyCafe: [Cafe] = [

@@ -8,12 +8,13 @@
 import SwiftUI
 
 struct HomeView: View {
+    @Binding var fullName: String
     
-    private let adaptiveColumn = [
+    let adaptiveColumn = [
         GridItem(.adaptive(minimum: 170))
     ]
     
-    private var data: [Int] = Array(1...5)
+    var data: [Int] = Array(1...5)
     
     var body: some View {
         GeometryReader { screen in
@@ -26,7 +27,7 @@ struct HomeView: View {
                     
                     VStack(alignment: .leading) {
                         Text("Welcome!")
-                        Text("Rivaldo Fernandes")
+                        Text(fullName)
                     }
                     .padding(.leading, 16)
                     
@@ -37,6 +38,7 @@ struct HomeView: View {
                 Divider()
                 
                 Text("Select Your Cafetaria")
+                    .font(.system(.title).bold())
                 
                 ScrollView {
                     ForEach(0..<dummyCafe.count, id: \.self) { id in
@@ -54,6 +56,6 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        HomeView(fullName: .constant("Rivaldo"))
     }
 }

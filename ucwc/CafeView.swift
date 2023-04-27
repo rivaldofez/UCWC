@@ -19,10 +19,13 @@ struct CafeView: View {
     
     
     var body: some View {
-        VStack {
-            Text(dummyCafe[cafeId].name)
-                .font(.system(.title))
+        VStack(alignment: .leading) {
+            Text("Select Your Food :")
+                .font(.system(.title3))
                 .foregroundColor(.primary)
+                .padding(.top, 32)
+                .padding(.bottom, 16)
+                .padding(.horizontal, 16)
             
             ScrollView {
                 LazyVGrid(columns: foodColumns) {
@@ -117,13 +120,12 @@ struct CafeView: View {
                     
                 }
                 .frame(maxWidth: .infinity, maxHeight: 150, alignment: .center)
-                .padding(.horizontal, 16)
                 .background(.black.opacity(0.15))
                 
             }
                 
         }
-        .navigationTitle("Cart")
+        .navigationTitle(dummyCafe[cafeId].name)
     }
     
      

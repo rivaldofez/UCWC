@@ -75,7 +75,7 @@ struct CartView: View {
                                     Spacer()
                                 }
                                 .padding(8)
-                                .background(.gray)
+                                .background(.gray.opacity(0.4))
                                 .clipShape(RoundedRectangle(cornerRadius: 8))
                                 .padding(16)
                                 

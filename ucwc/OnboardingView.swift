@@ -38,7 +38,7 @@ struct OnboardingView: View {
                     .disabled(fullname.isEmpty)
                     .fullScreenCover(isPresented: $showHomeView) {
                         NavigationView {
-                            MainView()
+                            MainView(fullName: $fullname)
                         }
                     }
                     
