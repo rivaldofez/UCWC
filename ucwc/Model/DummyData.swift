@@ -7,6 +7,8 @@
 
 import Foundation
 
+var dummyCartData: [Cart] = []
+
 let dummyCafe: [Cafe] = [
     Cafe(id: 0, name: "Tuku-tuku", food: [
         Food(id: 0, name: "Tahu isi", price: 100000000),

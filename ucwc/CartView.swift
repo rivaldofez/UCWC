@@ -8,8 +8,21 @@
 import SwiftUI
 
 struct CartView: View {
+    @State private var cartData: [Cart] = []
+    
     var body: some View {
-        /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Hello, world!@*/Text("Hello, world!")/*@END_MENU_TOKEN@*/
+        VStack {
+            Text("Your Order:")
+            
+            ScrollView {
+                ForEach(cartData, id: \.foodName) { cart in
+                    Text(cart.foodName)
+                }
+            }
+            
+        }.onAppear {
+            self.cartData = dummyCartData
+        }
     }
 }
 

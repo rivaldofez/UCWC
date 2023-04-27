@@ -96,7 +96,16 @@ struct CafeView: View {
                         
                     }.padding(.horizontal, 16)
                     
-                    Button(action: {}) {
+                    Button(action: {
+                        dummyCartData.removeAll(where: {$0.foodName == selectedFood?.name})
+                        
+                        if let foodName = selectedFood?.name {
+                            dummyCartData.append(Cart(cafeName: cafe.name, foodName: foodName, quantity: numOfBuy))
+                            
+                            print(dummyCartData)
+                        }
+                        
+                    }) {
                         Text("Add To Cart")
                     }
                     .disabled(numOfBuy <= 0)
