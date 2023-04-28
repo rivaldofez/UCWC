@@ -40,7 +40,7 @@ struct CartView: View {
                                     HStack {
                                         Button(action: {
                                             if(cafeData[cafeId].food[foodId].quantity > 0){
-                                                cafeData[cafeId].food[foodId].quantity  = cafeData[cafeId].food[foodId].quantity - 1
+                                                cafeData[cafeId].food[foodId].quantity -= 1
                                             }
                                             
                                         }) {
@@ -56,7 +56,7 @@ struct CartView: View {
                                             .padding(.horizontal, 10)
                                             .font(.system(.title3).bold())
                                         Button(action: {
-                                            cafeData[cafeId].food[foodId].quantity = cafeData[cafeId].food[foodId].quantity + 1
+                                            cafeData[cafeId].food[foodId].quantity += 1
                                         }) {
                                             Image(systemName: "plus")
                                                 .font(.system(.body))
