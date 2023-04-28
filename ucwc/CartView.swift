@@ -15,7 +15,7 @@ struct CartView: View {
             total = 0
             cafeData.forEach { cafe in
                 cafe.food.forEach { food in
-                    total = total + calculateTotal(quantity: food.quantity, price: food.price)
+                    total += calculateTotal(quantity: food.quantity, price: food.price)
                 }
             }
         }
@@ -26,7 +26,6 @@ struct CartView: View {
         VStack(alignment: .leading) {
             
             if (total > 0 ){
-                
                 ScrollView {
                     ForEach(0..<cafeData.count, id: \.self) { cafeId in
                         ForEach(0..<cafeData[cafeId].food.count, id: \.self) { foodId in
@@ -34,7 +33,7 @@ struct CartView: View {
                                 VStack(alignment: .leading) {
                                     Text(cafeData[cafeId].food[foodId].name)
                                         .font(.system(.title3))
-                                    Text("Rp\(cafeData[cafeId].food[foodId].price.formatted(FloatingPointFormatStyle()))")
+                                    Text("Rp\(formattedAmount(number: cafeData[cafeId].food[foodId].price))")
                                         .font(.system(.body))
                                     
                                     HStack {
@@ -42,7 +41,6 @@ struct CartView: View {
                                             if(cafeData[cafeId].food[foodId].quantity > 0){
                                                 cafeData[cafeId].food[foodId].quantity -= 1
                                             }
-                                            
                                         }) {
                                             Image(systemName: "minus")
                                                 .font(.system(.body))
@@ -69,7 +67,7 @@ struct CartView: View {
                                         
                                         Spacer()
                                         
-                                        Text("Subtotal : Rp\(calculateTotal(quantity: cafeData[cafeId].food[foodId].quantity, price: cafeData[cafeId].food[foodId].price).formatted(FloatingPointFormatStyle()))")
+                                        Text("Subtotal : Rp\(formattedAmount(number: calculateTotal(quantity: cafeData[cafeId].food[foodId].quantity, price: cafeData[cafeId].food[foodId].price)))")
                                             .font(.system(.title3).bold())
                                     }
                                     Spacer()
@@ -88,7 +86,7 @@ struct CartView: View {
                     Text("Total Order :")
                         .font(.system(.title3).bold())
                     Spacer()
-                    Text("Rp\(total.formatted(FloatingPointFormatStyle()))")
+                    Text("Rp\(formattedAmount(number: total))")
                         .font(.system(.title3).bold())
                     
                 }.padding(.horizontal, 16)
@@ -120,6 +118,11 @@ struct CartView: View {
             self.cafeData = dummyCafe
         }
     }
+    
+    private func formattedAmount(number: Double) -> String {
+        return number.formatted(FloatingPointFormatStyle())
+    }
+    
     
     private func calculateTotal(quantity: Int?, price: Double?) -> Double {
         if let quantity = quantity, let price = price {
