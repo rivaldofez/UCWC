@@ -64,44 +64,25 @@ struct CafeView: View {
                     
                     HStack {
                         
-                        HStack {
-                            Button(action: {
+                        CartItemView(
+                            actionMinus: {
                                 if quantity <= 0 {
                                     quantity = 0
                                 } else {
                                     quantity = quantity - 1
                                 }
-                                
-                            }) {
-                                Image(systemName: "minus")
-                                    .font(.system(.body))
-                                    .frame(width: 10, height: 10)
-                                    .foregroundColor(.black)
-                                    .padding(10)
-                                    .background(.gray.opacity(0.5))
-                                    .clipShape(Circle())
                             }
-                            Text("\(quantity)")
-                                .padding(.horizontal, 10)
-                                .font(.system(.title3).bold())
-                            Button(action: {
+                            , actionPlus: {
                                 quantity = quantity + 1
-                            }) {
-                                Image(systemName: "plus")
-                                    .font(.system(.body))
-                                    .frame(width: 10, height: 10)
-                                    .foregroundColor(.black)
-                                    .padding(10)
-                                    .background(.gray.opacity(0.5))
-                                    .clipShape(Circle())
                             }
-                        }
+                            , quantity: quantity,
+                            subTotal: calculateTotal(quantity: quantity, price: dummyCafe[cafeId].food[selectedFood].price))
+                        
+                        
                         
                         Spacer()
                         
-                        
-                        Text("Total : \(calculateTotal(quantity: quantity, price: dummyCafe[cafeId].food[selectedFood].price).formatted(FloatingPointFormatStyle()))")
-                            .font(.system(.title3).bold())
+                       
                         
                     }.padding(.horizontal, 16)
                     
