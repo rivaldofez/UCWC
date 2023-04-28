@@ -36,26 +36,18 @@ struct CartView: View {
                                     Text("Rp\(formattedAmount(number: cafeData[cafeId].food[foodId].price))")
                                         .font(.system(.body))
                                     
-                                    HStack {
-                                        ActionButton(iconName: "minus") {
+                                    
+                                    CartItemView(
+                                        actionMinus: {
                                             if(cafeData[cafeId].food[foodId].quantity > 0){
                                                 cafeData[cafeId].food[foodId].quantity -= 1
                                             }
-                                        }
-                                        
-                                        Text("\(cafeData[cafeId].food[foodId].quantity)")
-                                            .padding(.horizontal, 10)
-                                            .font(.system(.title3).bold())
-                                        
-                                        ActionButton(iconName: "plus") {
-                                            cafeData[cafeId].food[foodId].quantity += 1
-                                        }
-                                        
-                                        Spacer()
-                                        
-                                        Text("Subtotal : Rp\(formattedAmount(number: calculateTotal(quantity: cafeData[cafeId].food[foodId].quantity, price: cafeData[cafeId].food[foodId].price)))")
-                                            .font(.system(.title3).bold())
-                                    }
+                                    }, actionPlus: {
+                                        cafeData[cafeId].food[foodId].quantity += 1
+                                    }, quantity: cafeData[cafeId].food[foodId].quantity,
+                                        subTotal: calculateTotal(quantity: cafeData[cafeId].food[foodId].quantity, price: cafeData[cafeId].food[foodId].price))
+                                    
+                                    
                                     Spacer()
                                 }
                                 .padding(8)

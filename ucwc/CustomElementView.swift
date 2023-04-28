@@ -61,3 +61,28 @@ struct TotalOrderView: View {
         }.padding(.horizontal, 16)
     }
 }
+
+
+struct CartItemView: View {
+    var actionMinus: () -> Void
+    var actionPlus: () -> Void
+    var quantity: Int
+    var subTotal: Double
+    
+    var body: some View {
+        HStack {
+            ActionButton(iconName: "minus", action: actionMinus)
+            
+            Text("\(quantity)")
+                .padding(.horizontal, 10)
+                .font(.system(.title3).bold())
+            
+            ActionButton(iconName: "plus", action: actionPlus)
+            
+            Spacer()
+            
+            Text("Subtotal : Rp\(subTotal.formatted(FloatingPointFormatStyle()))")
+                .font(.system(.title3).bold())
+        }
+    }
+}
