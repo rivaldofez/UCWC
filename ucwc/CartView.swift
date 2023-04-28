@@ -51,20 +51,6 @@ struct CartView: View {
                                             cafeData[cafeId].food[foodId].quantity += 1
                                         }
                                         
-                                        
-                                        
-                                        Button(action: {
-                                            
-                                        }) {
-                                            Image(systemName: "plus")
-                                                .font(.system(.body))
-                                                .frame(width: 10, height: 10)
-                                                .foregroundColor(.black)
-                                                .padding(10)
-                                                .background(.gray)
-                                                .clipShape(Circle())
-                                        }
-                                        
                                         Spacer()
                                         
                                         Text("Subtotal : Rp\(formattedAmount(number: calculateTotal(quantity: cafeData[cafeId].food[foodId].quantity, price: cafeData[cafeId].food[foodId].price)))")
@@ -81,32 +67,16 @@ struct CartView: View {
                         }
                     }
                 }
+                TotalOrderView(total: total)
                 
-                HStack {
-                    Text("Total Order :")
-                        .font(.system(.title3).bold())
-                    Spacer()
-                    Text("Rp\(formattedAmount(number: total))")
-                        .font(.system(.title3).bold())
-                    
-                }.padding(.horizontal, 16)
                 
-                HStack {
-                    Spacer()
-                    Button(action: {
-                        showCheckOut.toggle()
-                    }) {
-                        Text("Check Out")
-                    }
-                    .buttonStyle(.borderedProminent)
-                    .sheet(isPresented: $showCheckOut) {
-                        CheckOutView(total: $total, cafeData: $cafeData)
-                            .presentationDetents([.medium, .large])
-                    }
-                    
-                    Spacer()
+                CheckOutButton {
+                    showCheckOut.toggle()
                 }
-                .padding(.bottom, 16)
+                .sheet(isPresented: $showCheckOut) {
+                    CheckOutView(total: $total, cafeData: $cafeData)
+                        .presentationDetents([.medium, .large])
+                }
                 
             } else {
                 Text("You don't order food yet. Check out our amazing food and order it")
