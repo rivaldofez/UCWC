@@ -37,24 +37,24 @@ struct CartView: View {
                                         .font(.system(.body))
                                     
                                     HStack {
-                                        Button(action: {
+                                        ActionButton(iconName: "minus") {
                                             if(cafeData[cafeId].food[foodId].quantity > 0){
                                                 cafeData[cafeId].food[foodId].quantity -= 1
                                             }
-                                        }) {
-                                            Image(systemName: "minus")
-                                                .font(.system(.body))
-                                                .frame(width: 10, height: 10)
-                                                .foregroundColor(.black)
-                                                .padding(10)
-                                                .background(.gray)
-                                                .clipShape(Circle())
                                         }
+                                        
                                         Text("\(cafeData[cafeId].food[foodId].quantity)")
                                             .padding(.horizontal, 10)
                                             .font(.system(.title3).bold())
-                                        Button(action: {
+                                        
+                                        ActionButton(iconName: "plus") {
                                             cafeData[cafeId].food[foodId].quantity += 1
+                                        }
+                                        
+                                        
+                                        
+                                        Button(action: {
+                                            
                                         }) {
                                             Image(systemName: "plus")
                                                 .font(.system(.body))

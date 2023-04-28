@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7E18FF1329FB657B00FCA9CF /* CustomElementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E18FF1229FB657B00FCA9CF /* CustomElementView.swift */; };
 		7EC697EE29FAF18D008D4B9D /* CheckOutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC697ED29FAF18D008D4B9D /* CheckOutView.swift */; };
 		7EF5D95429FA8A4F0053C5C1 /* UCWCApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF5D95329FA8A4F0053C5C1 /* UCWCApp.swift */; };
 		7EF5D95829FA8A500053C5C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7EF5D95729FA8A500053C5C1 /* Assets.xcassets */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7E18FF1229FB657B00FCA9CF /* CustomElementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomElementView.swift; sourceTree = "<group>"; };
 		7EC697ED29FAF18D008D4B9D /* CheckOutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckOutView.swift; sourceTree = "<group>"; };
 		7EF5D95029FA8A4F0053C5C1 /* ucwc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ucwc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EF5D95329FA8A4F0053C5C1 /* UCWCApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UCWCApp.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 		7EF5D95229FA8A4F0053C5C1 /* ucwc */ = {
 			isa = PBXGroup;
 			children = (
+				7E18FF1229FB657B00FCA9CF /* CustomElementView.swift */,
 				7EC697ED29FAF18D008D4B9D /* CheckOutView.swift */,
 				7EF5D96E29FAB3010053C5C1 /* Model */,
 				7EF5D96A29FAB22C0053C5C1 /* MainView.swift */,
@@ -183,6 +186,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E18FF1329FB657B00FCA9CF /* CustomElementView.swift in Sources */,
 				7EF5D96629FA9BC40053C5C1 /* CafeItemView.swift in Sources */,
 				7EF5D96D29FAB2860053C5C1 /* CartView.swift in Sources */,
 				7EC697EE29FAF18D008D4B9D /* CheckOutView.swift in Sources */,
